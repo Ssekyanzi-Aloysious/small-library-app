@@ -55,6 +55,7 @@ addBtn.addEventListener("click", (e) => {
 addBookBtn.addEventListener("click", (e) => {
   if (titleInput.value && authorInput.value && pagesInput.value) {
     addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value);
+    let thisBook = bookArray[bookArray.length-1];
     let bookCover = document.createElement("div");
     bookCover.classList.add("book");
     bookCover.textContent = titleInput.value;
@@ -68,10 +69,11 @@ addBookBtn.addEventListener("click", (e) => {
     isReadBtn.textContent = "Read";
     isReadBtn.classList.add("isReadBtn");
     isReadBtn.addEventListener("click", (e) => {
-      b.isRead ? (b.isRead = false) : (b.isRead = true);
-      if (b.isRead) isReadBtn.style.color = "white";
-      if (!b.isRead) isReadBtn.style.color = "#353535";
+      thisBook.isRead ? (thisBook.isRead = false) : (thisBook.isRead = true);
+      if (thisBook.isRead) isReadBtn.style.color = "white";
+      if (!thisBook.isRead) isReadBtn.style.color = "#353535";
     });
+    
     bookCover.appendChild(isReadBtn);
     bookCover.appendChild(removeBtn);
     container.appendChild(bookCover);
