@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>MiniLibrary</title>
+    </head>
+    <body>
+        <h1 class="logo">MY MINI-LIBRARY</h1>
+        <button class="addBtn" command="show-modal" commandfor="add-dialog">Add Book</button>
+        <dialog id="add-dialog">
+            <h3>Add book to library</h3>
+            <form action="">
+                <div>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" class="titleInput" name="title">
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" id="author" class="authorInput" name="author">
+                </div>
+                <div>
+                    <label for="pages">pages</label>
+                    <input type="number" id="pages" class="pagesInput" name="pages">
+                </div>
+                <label for="isRead">Read</label>
+                <input type="checkbox">
+            </form>
+            <button class="add">Add Book</button>
+            <button commandfor="add-dialog" command="close" class="closeBtn">Close</button>
+        </dialog>
+        <div class="container"></div>
+        <script src="index.js"></script>
+    </body>
+</html>
