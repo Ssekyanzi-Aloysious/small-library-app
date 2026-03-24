@@ -23,8 +23,6 @@ function addBookToLibrary(title, author, pages) {
 }
 
 function displayBooks() {
-  console.log(bookArray);
-
   bookArray.forEach((b) => {
     let bookCover = document.createElement("div");
     bookCover.classList.add("book");
@@ -33,18 +31,18 @@ function displayBooks() {
     removeBtn.classList.add("removeBtn");
     removeBtn.textContent = "Remove Book";
     removeBtn.addEventListener("click", (e) => {
-      console.log(`Remove ${e.target.parentNode.textContent}`);
       e.target.parentNode.remove();
     });
     bookCover.appendChild(removeBtn);
     const isReadBtn = document.createElement("button");
     isReadBtn.textContent = "Read";
-    isReadBtn.classList.add("isReadBtn")
-    isReadBtn.addEventListener("click",e=>{
-      b.isRead? b.isRead = false : b.isRead = true;
-      console.log(b);      
-    })
-    bookCover.appendChild(isReadBtn)
+    isReadBtn.classList.add("isReadBtn");
+    isReadBtn.addEventListener("click", (e) => {
+      b.isRead ? (b.isRead = false) : (b.isRead = true);
+      if (b.isRead) isReadBtn.style.color = "white";
+      if (!b.isRead) isReadBtn.style.color = "#353535";
+    });
+    bookCover.appendChild(isReadBtn);
     container.appendChild(bookCover);
   });
 }
@@ -64,16 +62,16 @@ addBookBtn.addEventListener("click", (e) => {
     removeBtn.classList.add("removeBtn");
     removeBtn.textContent = "Remove Book";
     removeBtn.addEventListener("click", (e) => {
-      console.log(`Remove ${e.target.parentNode.textContent}`);
       e.target.parentNode.remove();
     });
-        const isReadBtn = document.createElement("button");
+    const isReadBtn = document.createElement("button");
     isReadBtn.textContent = "Read";
-    isReadBtn.classList.add("isReadBtn")
-    isReadBtn.addEventListener("click",e=>{
-      b.isRead? b.isRead = false : b.isRead = true;
-      console.log(b);      
-    })
+    isReadBtn.classList.add("isReadBtn");
+    isReadBtn.addEventListener("click", (e) => {
+      b.isRead ? (b.isRead = false) : (b.isRead = true);
+      if (b.isRead) isReadBtn.style.color = "white";
+      if (!b.isRead) isReadBtn.style.color = "#353535";
+    });
     bookCover.appendChild(isReadBtn);
     bookCover.appendChild(removeBtn);
     container.appendChild(bookCover);
@@ -87,8 +85,6 @@ addBookBtn.addEventListener("click", (e) => {
     pagesInput.value = "";
     alert("All fields must be filled");
   }
-
-  // myDialog.close();
 });
 
 addBookToLibrary("Harry Potter", "J.K Rowling", 974);
@@ -97,6 +93,3 @@ addBookToLibrary("Mortal Instruments", "Cassandra Clare", 682);
 addBookToLibrary("His Dark Materials", "Philip Pullman", 826);
 
 displayBooks();
-
-// const domBooks = document.querySelectorAll(".book");
-// console.log(domBooks);
